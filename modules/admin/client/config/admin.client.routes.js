@@ -5,7 +5,9 @@
 		.config(function(AdminServiceProvider){
 			AdminServiceProvider.setDataSourceToggle(true);
 		})
-		.config(function($stateProvider){
+		.config(function($stateProvider, $urlRouterProvider){
+			$urlRouterProvider.otherwise("/admin/new");
+
 			$stateProvider
 			.state({
 				name:'admin',
