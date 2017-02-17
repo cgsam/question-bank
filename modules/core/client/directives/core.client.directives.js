@@ -33,4 +33,27 @@ angular
 				replace:true,
 				template: "<li><a ui-sref='{{state}}'>{{title}}</a></li>"
 			}
-		});
+		})
+	.directive('qbFormField', function(){
+		return {
+			restrict: 'E',
+			scope: {
+				field: '=',
+				target: '='
+			},
+			link: function($scope){
+				var f;
+				for(var key in $scope.target){
+					if (key === $scope.field.title.toLowerCase()){
+						f = key;
+					}
+				}
+				$scope.model = {};
+			},	
+			template: "<label class='control-label col-sm-2' for='{{field.title}}'>{{field.title}}:</label>" +
+	    			"<div class='col-sm-4'> " +
+	      				"<input type='{{field.type}}' class='form-control' id='{{field.title}}' placeholder='{{field.placeholder}}' " +
+	      				" ng-model=model.name>" +
+	    			"</div>"
+		}
+	});

@@ -3,7 +3,25 @@
 angular
 	.module('admin')
     .controller('AdminCtrl', function($scope,AdminService){
-     
+     $scope.fields = [
+        {
+            title: 'Language',
+            type: 'text',
+            placeholder: 'Enter Language',
+            value: 'question.language'
+        },
+        {
+            title: 'Title',
+            type: 'text',
+            placeholder: 'Enter Title'
+        }
+    ];
+
+    $scope.question = { 
+            language: '',
+            title: ''
+    };
+
      $scope.save = function(question){
      	var promise = AdminService.addQuestion(question);
      	promise
