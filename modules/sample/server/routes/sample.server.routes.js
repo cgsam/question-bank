@@ -4,9 +4,11 @@
 
 'use strict';
 
+var controller = require('../controllers/sample.server.controllers');
+
 module.exports = function(app){
 
-    app.route('/events')
+    app.route('/events/:id')
         .all(function(req, res, next) {
             console.log('Within Interceptor');
             next();
@@ -17,4 +19,6 @@ module.exports = function(app){
         .post(function(req, res) {
             res.json({"message":"Got your POST request"});
         });
+
+    app.param('id',controller.validateId);
 };
