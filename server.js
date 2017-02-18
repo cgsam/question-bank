@@ -4,6 +4,6 @@
 
 'use strict';
 
-var app = require('./modules/core/server/app');
+var app = require('./config/lib/app');
 
     app.start();

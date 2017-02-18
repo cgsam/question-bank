@@ -3,9 +3,9 @@
  */
 'use strict';
 
-var express = require('express'),
-    config = require('../../../config/config'),
-    app = express();
+var express = require('./express'),
+    config = require('../config'),
+    app = express.init();
 
 module.exports.start = function(){
     app.listen(config.port, function(){
